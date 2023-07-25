@@ -1,6 +1,6 @@
 class max_Sum_SubArray{
 
-    static int solve(int[] arr){
+    static int solve(int[] arr, int k){
         
         // * Bruth Force O(n*3)
         //int ans = Integer.MIN_VALUE;
@@ -13,17 +13,26 @@ class max_Sum_SubArray{
         // }
 
         //Optimized Sliding Window O(n)
-        int temp = arr[0] + arr[1]+ arr[2];
-        int ans = temp;
-        for(int i = 1; i < arr.length-1; i++){
-            temp = temp - arr[i-1] + arr[i+1];
-            ans = Math.max(ans,temp);
+        int sum = 0, i = 0, j =0 ;
+        int ans = 0;
+        while(j<arr.length) {
+            sum+=arr[j];
+            if(j-i+1<k) {
+              j++;
+            }
+            else if(j-i+1==k){
+                ans=Math.max(sum,ans);
+                sum-=arr[i];
+                j++;    
+                i++;
+            }
         }
 
         return ans;
     }
     public static void main(String[] args) {
         int arr[] = {10,2,5, 5, 6, 8, 1, 2};
-        System.out.println(solve(arr));
+        int k = 3;
+        System.out.println(solve(arr,k));
     }
 }
