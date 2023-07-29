@@ -12,7 +12,7 @@ class max_Sum_SubArray{
         //     ans = Math.max(ans,temp);
         // }
 
-        //Optimized Sliding Window O(n)
+        // * Optimized Sliding Window O(n)
         int sum = 0, i = 0, j =0 ;
         int ans = 0;
         while(j<arr.length) {
