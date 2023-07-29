@@ -20,7 +20,8 @@ public class First_Negative_Number_in_every_Window_of_Size_K {
             
         // }
 
-        //Optimized Sliding Window O(n)
+        // *Optimized Sliding Window O(n)
+        
         ArrayList<Integer> ans = new ArrayList<>();
         ArrayList<Integer> neg = new ArrayList<>();
         int i = 0 , j = 0;
